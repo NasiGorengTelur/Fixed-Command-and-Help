@@ -1,0 +1,33 @@
+CMD:ahelp(playerid, params[])
+{
+	if (!PlayerData[playerid][pAdmin])
+	    return SendErrorMessage(playerid, "You are not an administrator.");
+
+	if (PlayerData[playerid][pAdmin] >= 1) {
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 1]:{FFFFFF} /a, /reports, /spectate, /ajail, /release, /kick, /mute, /unmute, /freeze, /unfreeze.");
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 1]:{FFFFFF} /aduty, /ban, /skin /goto /aremovecall");
+	}
+	if (PlayerData[playerid][pAdmin] >= 2) {
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 2]:{F5D44D} /respawn, /warn, /checkstats, /shooter, /goto, /bring, /setinterior, /setvw.");
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 2]:{F5D44D} /sendto, /clearchat, /spawn, /refill, /revive, /aslap, /acceptname, /declinename, /atalk.");
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 2]:{F5D44D} /masked, /listguns, /respawncar, /respawncars, /respawnnear, /heal, /bringcar, /gotocar.");
+		SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 2]:{F5D44D} /x /y /z");
+ 	}
+	if (PlayerData[playerid][pAdmin] >= 3) {
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 3]:{F6CA16} /unban, /blacklist, /getip, /togooc, /health, /armor, /resetweps, /arepair, /listwarns.");
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 3]:{F6CA16} /entercar, /flipcar, /veh, /destroyveh, /near, /healall, /tracenumber, /bleeding.");
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 3]:{F6CA16} /atune, /acolorcar, /apaintjob, /afire, /akillfire, /adestroybox.");
+	}
+	if (PlayerData[playerid][pAdmin] >= 4) {
+        SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 4]:{D6AD05} /givewep, /settester, /baninfo, /setname, /asetfaction, /asetrank, /setitem.");
+        SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 4]:{D6AD05} /asellhouse, /asellbiz, /jetpack, /setweather, /setfuel, /setcarhp, /spawnitem.");
+        SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 4]:{D6AD05} /setquantity, /destroyitem, /setplayer, /setleader, /setinventory, /givecar.");
+	}
+	if (PlayerData[playerid][pAdmin] >= 5) {
+        SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 5]:{D9071A} /dynamichelp, /givecash, /clearinventory, /clearwarns, /saveall, /restart.");
+	}
+	if (PlayerData[playerid][pAdmin] >= 6) {
+	    SendClientMessage(playerid, COLOR_YELLOW, "[LEVEL 6]:{AE0918} /makeadmin, /deleteaccount, /deletechar, /factionmod, /panel.");
+	}
+	return 1;
+}
