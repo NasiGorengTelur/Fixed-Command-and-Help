@@ -1,0 +1,44 @@
+CMD:help(playerid, params[])
+{
+	SendClientMessage(playerid, COLOR_CLIENT, "ACCOUNT:{FFFFFF} /changepass, /lastlogged, /username, /properties.");
+	SendClientMessage(playerid, COLOR_CLIENT, "GENERAL:{FFFFFF} /stats, /report, /seekhelp, /acc, /me, /do, /(s)hout, /(o)oc, /inventory, /switch.");
+	SendClientMessage(playerid, COLOR_CLIENT, "GENERAL:{FFFFFF} /approve, /faq, /sell, /paint, /drink, /bank, /cook, /vest, /ammo, /usekit, /phone.");
+	SendClientMessage(playerid, COLOR_CLIENT, "GENERAL:{FFFFFF} /id, /call, /hangup, /text, /drop, /flist, /crates, /fill, /pay, /gps, /open, /usedrug.");
+	SendClientMessage(playerid, COLOR_CLIENT, "GENERAL:{FFFFFF} /animcmds, /backpack, /boombox, /channel, /jobcmds, /supporters, /disablecp, /stopanim.");
+	SendClientMessage(playerid, COLOR_CLIENT, "GENERAL:{FFFFFF} /shakehand, /showlicense, /frisk, /toghud, /passwep, /setradio, /picklock, /resetvw.");
+	SendClientMessage(playerid, COLOR_CLIENT, "PROPERTY:{FFFFFF} /buy, /abandon, /lock, /housecmds, /products, /vault, /binfo, /bizcmds.");
+
+	if (PlayerData[playerid][pFactionMod])
+	    SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{FFFFFF} /createfaction, /editfaction, /destroyfaction.");
+
+	if (PlayerData[playerid][pFaction] != -1)
+	{
+ 		SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{F59820} /online, /(f)ac, /fquit, /flocker, /finvite, /fremove, /frank, /fspray.");
+
+ 		if (GetFactionType(playerid) == FACTION_POLICE) {
+ 		    SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{F59820} /tazer, /cuff, /uncuff, /drag, /detain, /mdc, /arrest, /radio, /dept, /seizeplant.");
+ 		    SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{F59820} /ticket, /spike, /roadblock, /fingerprint, /impound, /revokeweapon.");
+ 		    SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{F59820} /take, /kickdoor, /siren, /beanbag /callsign");
+		}
+		else if (GetFactionType(playerid) == FACTION_NEWS) {
+		    SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{F59820} /radio, /broadcast, /bc, /inviteguest, /removeguest.");
+		}
+  		else if (GetFactionType(playerid) == FACTION_MEDIC) {
+ 		    SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{F59820} /radio, /dept, /bandage, /loadinjured, /dropinjured.");
+		}
+		else if (GetFactionType(playerid) == FACTION_GOV) {
+ 		    SendClientMessage(playerid, COLOR_CLIENT, "FACTION:{F59820} /radio, /dept, /twithdraw, /tdeposit.");
+		}
+	}
+	SendClientMessage(playerid, COLOR_CLIENT, "VEHICLE:{FFFFFF} /park, /lock, /abandon, /refuel, /unmod, /trunk, /listcars, /engine, /lights, /hood, /tow.");
+
+    if (PlayerData[playerid][pTester] > 0)
+	{
+	    SendClientMessage(playerid, COLOR_CLIENT, "SUPPORTER:{F71F22} /t, /sduty, /ah, /dh, /kick");
+	}
+	if (PlayerData[playerid][pAdmin] > 0)
+	{
+	    SendClientMessage(playerid, COLOR_CLIENT, "ADMIN:{F71F22} /(a)dmin, /ahelp.");
+	}
+	return 1;
+}
